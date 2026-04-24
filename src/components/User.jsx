@@ -68,7 +68,7 @@ function User() {
               <div className="card-body p-0">
                 <ul className="list-group list-group-flush rounded-3">
                   <li className="list-group-item d-flex justify-content-between align-items-center p-3">
-                    <p className="mb-0">
+                    <p className="mb-0 flex-grow-1 me-2 text-break">
                       <i className="fa-solid fa-earth-americas"></i> &nbsp;
                       {userData?.socialLinks?.website ||
                         userData?.userFinded?.socialLinks?.website ||
@@ -89,7 +89,7 @@ function User() {
                   </li>
 
                   <li className="list-group-item d-flex justify-content-between align-items-center p-3">
-                    <p className="mb-0">
+                    <p className="mb-0 flex-grow-1 me-2 text-break">
                       <i className="fa-brands fa-github"></i> &nbsp;
                       {userData?.socialLinks?.github || userData?.userFinded?.socialLinks?.github ||
                         "mdbootstrap"}
@@ -105,7 +105,7 @@ function User() {
                   </li>
 
                   <li className="list-group-item d-flex justify-content-between align-items-center p-3">
-                    <p className="mb-0">
+                    <p className="mb-0 flex-grow-1 me-2 text-break">
                       <i className="fa-brands fa-twitter"></i> &nbsp;
                       {userData?.socialLinks?.twitter || userData?.userFinded?.socialLinks?.twitter ||
                         "@mdbootstrap"}
@@ -121,7 +121,7 @@ function User() {
                   </li>
 
                   <li className="list-group-item d-flex justify-content-between align-items-center p-3">
-                    <p className="mb-0">
+                    <p className="mb-0 flex-grow-1 me-2 text-break">
                       <i className="fa-brands fa-instagram"></i> &nbsp;
                       {userData?.socialLinks?.instagram || userData?.userFinded?.socialLinks?.instagram ||
                         "mdbootstrap"}
@@ -137,7 +137,7 @@ function User() {
                   </li>
 
                   <li className="list-group-item d-flex justify-content-between align-items-center p-3">
-                    <p className="mb-0">
+                    <p className="mb-0 flex-grow-1 me-2 text-break">
                       <i className="fa-brands fa-facebook"></i> &nbsp;
                       {userData?.socialLinks?.facebook || userData?.userFinded?.socialLinks?.facebook ||
                         "mdbootstrap"}

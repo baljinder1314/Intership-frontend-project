@@ -33,7 +33,7 @@ function Navbar() {
           </Link>
         </div>
         <div className="">
-          <Link className="text-light text-decoration-none h6 p-1" to={"/user"}>Me</Link>
+          <Link className="text-light text-decoration-none h6 p-1" to={"/user"}>Profile</Link>
         </div>
       </div>
       <div className="ms-auto d-flex gap-3 align-items-center">

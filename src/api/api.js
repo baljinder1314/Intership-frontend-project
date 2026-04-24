@@ -23,48 +23,30 @@ api.interceptors.request.use((config) => {
 
 api.interceptors.response.use(
   (response) => response,
-
   async (error) => {
     const originalRequest = error.config;
 
     const token = localStorage.getItem("token");
 
-    // ✅ skip refresh if user is not logged in
-    if (!token) return Promise.reject(error);
-
-    // ✅ skip refresh for login and register routes
-    const skipRoutes = ["/login", "/register", "/refresh-token"];
-    const isSkipRoute = skipRoutes.some((route) =>
-      originalRequest.url.includes(route),
-    );
-    if (isSkipRoute) return Promise.reject(error);
-
-    if (error.response?.status === 401 && !originalRequest._retry) {
+    if (error.response?.status === 401 && token && !originalRequest._retry) {
       originalRequest._retry = true;
 
       try {
-        // call refresh token endpoint
-        const response = await axios.post(
-          "http://localhost:8080/user/refresh-token",
+        const res = await api.post(
+          "/refresh-token",
           {},
-          { withCredentials: true }, // refresh token is in cookie
+          { withCredentials: true },
         );
+        const newToken = res.data.data.accessToken;
 
-        const newAccessToken = response.data?.data?.accessToken;
+        localStorage.setItem("token", newToken);
 
-        // save new access token
-        localStorage.setItem("token", newAccessToken);
+        // retry previous request
+        originalRequest.headers.Authorization = `Bearer ${newToken}`;
 
-        // update header and retry original request
-        originalRequest.headers.Authorization = `Bearer ${newAccessToken}`;
-        return api(originalRequest); // ✅ retry failed request
-      } catch (refreshError) {
-        // refresh token also expired — force logout
-
-        store.dispatch(removeUser());
+        return api(originalRequest);
+      } catch (error) {
         localStorage.removeItem("token");
-        
-        return Promise.reject(refreshError);
       }
     }
     return Promise.reject(error);

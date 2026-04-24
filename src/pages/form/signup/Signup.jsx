@@ -34,7 +34,7 @@ function Signup() {
     setLoading(true);
     try {
       const response = await api.post("/register", formData);
-      console.log(response?.data);
+      
 
       
       dispatch(addUser(response?.data));
