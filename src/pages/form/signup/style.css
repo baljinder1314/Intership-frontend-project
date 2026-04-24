@@ -1,0 +1,112 @@
+/* Page background */
+.signup-page {
+  background-color: #111827;
+}
+
+/* Form card */
+.signup-card {
+  background-color: #1f2937;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Heading */
+.signup-title {
+  color: #f9fafb;
+  font-size: 20px;
+}
+
+/* Subtitle */
+.signup-subtitle {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+/* Labels */
+.signup-label {
+  color: #9ca3af;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+
+/* Inputs */
+.signup-input {
+  background-color: #111827 !important;
+  border: 1px solid #374151 !important;
+  color: #f9fafb !important;
+}
+
+.signup-input::placeholder {
+  color: #4b5563;
+}
+
+.signup-input:focus {
+  background-color: #111827 !important;
+  border-color: #6366f1 !important;
+  color: #f9fafb !important;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25) !important;
+}
+
+/* Checkbox */
+.signup-checkbox {
+  accent-color: #6366f1;
+}
+
+/* Checkbox label */
+.signup-check-label {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+/* Accent links (terms, sign in) */
+.signup-link {
+  color: #6366f1;
+  cursor: pointer;
+}
+
+/* Primary submit button */
+.signup-btn-primary {
+  background-color: #6366f1;
+  color: #ffffff;
+  padding: 11px;
+  border-radius: 8px;
+  border: none;
+}
+
+.signup-btn-primary:hover {
+  background-color: #4f46e5;
+  color: #ffffff;
+}
+
+/* Google / secondary button */
+.signup-btn-secondary {
+  background: transparent;
+  border: 1px solid #374151;
+  color: #d1d5db;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.signup-btn-secondary:hover {
+  background-color: #1f2937;
+  color: #f9fafb;
+  border-color: #6366f1;
+}
+
+/* Divider */
+.signup-divider {
+  border-color: #374151;
+}
+
+.signup-divider-text {
+  color: #4b5563;
+  font-size: 12px;
+}
+
+/* Bottom sign-in text */
+.signup-footer-text {
+  color: #6b7280;
+  font-size: 13px;
+}
