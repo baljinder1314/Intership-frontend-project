@@ -52,7 +52,6 @@ function Login() {
         error.message || // network error
         "Something went wrong";
 
-        console.log(message)
       toast.error(message);
     }
 

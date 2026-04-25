@@ -8,8 +8,16 @@ const userSlice = createSlice({
   reducers: {
     addUser: (state, action) => {
       state.user = action.payload;
-      if (action.payload.data.accessToken) {
-        localStorage.setItem("token", action.payload.data.accessToken);
+
+      const token = action.payload?.data?.accessToken;
+
+      if (token) {
+        const tokenData = {
+          value: token,
+          expiry: Date.now() + 5 * 60 * 60 * 1000,
+        };
+
+        localStorage.setItem("token", JSON.stringify(tokenData));
       }
     },
     removeUser: (state) => {
