@@ -14,15 +14,15 @@ import UserEdit from "../pages/EditUser";
 
 const ProtectedLayout = () => {
   const token = localStorage.getItem("token");
-  return token || undefined ? <Outlet /> : <Navigate to="/signup" />;
+  return token ? <Outlet /> : <Navigate to="/signup" />;
 };
 
 const PublicLayout = () => {
   const token = localStorage.getItem("token");
-  return !token || undefined ? <Outlet /> : <Navigate to="/" />;
+  return !token ? <Outlet /> : <Navigate to="/" />;
 };
 
-// ✅ createBrowserRouter with layout wrapping
+
 const router = createBrowserRouter([
   {
     // Protected routes

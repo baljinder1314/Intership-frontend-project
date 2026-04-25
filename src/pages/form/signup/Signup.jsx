@@ -34,9 +34,7 @@ function Signup() {
     setLoading(true);
     try {
       const response = await api.post("/register", formData);
-      
 
-      
       dispatch(addUser(response?.data));
       navigate("/");
     } catch (error) {
@@ -57,7 +55,7 @@ function Signup() {
 
   return (
     <FormContainer>
-      <Toaster  position="top-right" />
+      <Toaster position="top-right" />
       <form
         onSubmit={handleSubmit}
         className={`p-4 d-flex flex-column flex-grow-1 needs-validation ${
@@ -86,9 +84,7 @@ function Signup() {
             required
             value={formData.fullName}
           />
-            <div className="invalid-feedback">
-            Username is required .
-          </div>
+          <div className="invalid-feedback">Username is required .</div>
         </div>
 
         {/* Username */}

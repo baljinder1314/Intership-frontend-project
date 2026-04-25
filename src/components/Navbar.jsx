@@ -9,7 +9,7 @@ function Navbar() {
 
   const userData = user?.data?.loggedInUser || user?.data || user?.userFinded;
   
-    console.log()
+  
     
   const dispatch = useDispatch();
   let navigate = useNavigate();

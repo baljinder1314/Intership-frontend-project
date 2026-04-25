@@ -21,7 +21,7 @@ function App() {
     };
 
     fetchUser();
-  }, []);
+  }, [dispatch]);
   return <AppRoter />;
 }
 

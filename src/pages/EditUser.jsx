@@ -4,6 +4,7 @@ import api from "../api/api";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../slices/userSlice";
+import toast, { Toaster } from "react-hot-toast";
 
 function UserEdit() {
   const [loading, setLoading] = useState(false);
@@ -47,8 +48,6 @@ function UserEdit() {
     });
   }, [userData, userDataNew]);
 
-  
-
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -76,7 +75,12 @@ function UserEdit() {
       dispatch(addUser(response.data));
       navigate("/user");
     } catch (error) {
-      console.log(error);
+      const message =
+        error.response?.data?.message ||
+        error.response?.data ||
+        error.message ||
+        "Something went wrong";
+      toast.error(message);
     }
 
     setLoading(false);
@@ -84,6 +88,7 @@ function UserEdit() {
 
   return (
     <div className="container py-5" style={{ maxWidth: "850px" }}>
+      <Toaster position="top-right" />
       <div className="card shadow border-0 rounded-4">
         <div className="card-body p-4">
           <h2 className="fw-bold mb-1">Edit Profile</h2>

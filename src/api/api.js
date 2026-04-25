@@ -4,14 +4,14 @@ import store from "../store/store";
 import { removeUser } from "../slices/userSlice";
 
 const api = axios.create({
-  baseURL: "http://localhost:8080/user",
+  baseURL: import.meta.env.VITE_BASE_URL,
   withCredentials: true,
   headers: {
     "Content-Type": "application/json",
   },
 });
 
-//attach access token to every request
+// attach access token to every request
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
 
