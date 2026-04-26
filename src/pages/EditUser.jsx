@@ -28,26 +28,23 @@ function UserEdit() {
 
   // ✅ populate form when userData arrives in redux
   useEffect(() => {
-    if (!userData) return;
+    // pick whichever object actually has the data
+    const source = userDataNew || userData;
+    if (!source) return;
 
     setFormData({
-      fullName: userData.fullName || userDataNew?.fullName,
-      username: userData.username || userDataNew?.username,
-      profession: userData.profession || userDataNew?.profession,
-      address: userData.address || userDataNew?.address,
-      phone: userData.phone || userDataNew?.phone,
-      website:
-        userData.socialLinks?.website || userDataNew?.socialLinks?.website,
-      github: userData.socialLinks?.github || userDataNew?.socialLinks?.github,
-      twitter:
-        userData.socialLinks?.twitter || userDataNew?.socialLinks?.twitter,
-      instagram:
-        userData.socialLinks?.instagram || userDataNew?.socialLinks?.instagram,
-      facebook:
-        userData.socialLinks?.facebook || userDataNew?.socialLinks?.facebook,
+      fullName: source.fullName || "",
+      username: source.username || "",
+      profession: source.profession || "",
+      address: source.address || "",
+      phone: source.phone || "",
+      website: source.socialLinks?.website || "",
+      github: source.socialLinks?.github || "",
+      twitter: source.socialLinks?.twitter || "",
+      instagram: source.socialLinks?.instagram || "",
+      facebook: source.socialLinks?.facebook || "",
     });
   }, [userData, userDataNew]);
-
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -124,7 +121,7 @@ function UserEdit() {
                   type="text"
                   name="profession"
                   className="form-control"
-                  value={formData.profession}
+                  value={formData?.profession}
                   onChange={handleChange}
                 />
               </div>
