@@ -10,7 +10,7 @@ const userSlice = createSlice({
       state.user = action.payload;
 
       const token = action.payload?.data?.accessToken;
-
+      
       if (token) {
         const tokenData = {
           value: token,
