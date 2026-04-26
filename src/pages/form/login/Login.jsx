@@ -46,6 +46,7 @@ function Login() {
       dispatch(addUser(response?.data));
       navigate("/");
     } catch (error) {
+      // console.log(error.message)
       const message =
         error.response?.data?.message || // your AppError message
         error.response?.data || // plain string response
